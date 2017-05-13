@@ -9,7 +9,6 @@ class ExpressServer {
   static toString() {
     return 'Express Server Infrastructure';
   }
-  
   start() {
     app.get('/', (req, res) => {
       res.send(this.webserverInterface.displayApiVersion());
