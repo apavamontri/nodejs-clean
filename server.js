@@ -1,18 +1,14 @@
 const VersionInteractor = require('./usecases/version');
 const WebServerInterface = require('./interfaces/webserver');
-const express = require('express');
+const ExpressWebServer = require('./infrastructures/express-server');
 
 const versionInteractor = new VersionInteractor();
 const webserverInterface = new WebServerInterface({
   VersionInteractor: versionInteractor,
 });
 
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send(webserverInterface.displayApiVersion());
+const expressWebServer = new ExpressWebServer({
+  WebServerInterface: webserverInterface,
 });
 
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
-});
+expressWebServer.start();
