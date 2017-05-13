@@ -11,7 +11,8 @@ class ExpressServer {
   }
   start() {
     app.get('/', (req, res) => {
-      res.send(this.webserverInterface.displayApiVersion());
+      res.type('application/json');
+      res.status(200).send(this.webserverInterface.displayApiVersion());
     });
 
     app.listen(3000, () => {
