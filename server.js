@@ -1,6 +1,24 @@
-const VersionInteractor = require('./usecases/version');
-const WebServerInterface = require('./interfaces/webserver');
+const EnvironmentVariables = require('./infrastructures/environment-variables');
 const ExpressWebServer = require('./infrastructures/express-server');
+
+const ConfigurationAdapter = require('./interfaces/configuration');
+const WebServerInterface = require('./interfaces/webserver');
+
+const ConfigurationInteractor = require('./usecases/configuration');
+const VersionInteractor = require('./usecases/version');
+
+const environmentVariable = new EnvironmentVariables();
+
+const configurationAdapter = new ConfigurationAdapter({
+  ConfigurationAdapter: environmentVariable,
+});
+
+const configurationInteractor = new ConfigurationInteractor({
+  ConfigurationInterface: configurationAdapter,
+});
+
+const configuraionData = configurationInteractor.load();
+console.log(configuraionData.toString());
 
 const versionInteractor = new VersionInteractor();
 const webserverInterface = new WebServerInterface({
