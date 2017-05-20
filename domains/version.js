@@ -8,7 +8,6 @@
  */
 class Version {
   static toString() {
-
     // Hard-code version number to 1 for now
     return {
       version: '1.0.0',
