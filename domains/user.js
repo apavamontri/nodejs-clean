@@ -1,5 +1,10 @@
+/**
+ * User domain contains information about user
+ */
 class User {
-  static toString() {
+
+  // toString() print out user information in easy to read format
+  toString() {
     return 'User domain';
   }
 }

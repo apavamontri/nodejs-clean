@@ -6,9 +6,15 @@
 const ConfigurationData = require('../domains/configuration-data');
 
 class EnvironmentVariable {
+
+  // load() is responsible for loading configuration data
   load() {
+    // By using the domain's Configuration data object here
+    // we referred from the domain layer which doesn't break the dependency
+    // rule of the clean architecture
     const configurationData = new ConfigurationData();
 
+    // We are loding the configuration from the environment variable
     configurationData.MongoDBUrl = process.env.MONGODB_URL;
     configurationData.NodeEnv = process.env.NODE_ENV;
 

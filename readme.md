@@ -12,11 +12,19 @@ We are separated this application into 4 different layers
   3. Interfaces
   4. Infrastructure (lowest)
 
-The gist of it is a separation of concerns. Outer layer (lower) can reference (or know) the inner (highest) layer, however, the inner layers __can not__ know about outer layer. We accomplished this by using [Dependency Injection][2] and [Interface][3] during the object creation.
+The gist of it is a separation of concerns. Outer layer (lower) can reference (or know) the inner (highest) layer, however, the inner layers __can not__ know about outer layer. We accomplished this by using [Dependency Injection][2] and [Duck Typing][3] since Javascript doesn't have the concept of Interface.
+
 
 ```
+(highest)                                    (lowest, most detail implementation)
 domains ---> user cases ---> interfaces ---> infrastructure
 ```
+## Run the server
+```
+$ npm install
+$ NODE_ENV=development node server.js
+```
+
 [1]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
 [2]: https://martinfowler.com/articles/injection.html
-[3]: https://gobyexample.com/interfaces
+[3]: https://en.wikipedia.org/wiki/Duck_typing

@@ -1,3 +1,6 @@
+/**
+ * server.js is a starting point
+ */
 const EnvironmentVariables = require('./infrastructures/environment-variables');
 const ExpressWebServer = require('./infrastructures/express-server');
 
@@ -8,7 +11,6 @@ const ConfigurationInteractor = require('./usecases/configuration');
 const VersionInteractor = require('./usecases/version');
 
 const environmentVariable = new EnvironmentVariables();
-
 const configurationAdapter = new ConfigurationAdapter({
   ConfigurationAdapter: environmentVariable,
 });
@@ -18,6 +20,8 @@ const configurationInteractor = new ConfigurationInteractor({
 });
 
 const configuraionData = configurationInteractor.load();
+
+// Print out the current configuration data for testing purpose
 console.log(configuraionData.toString());
 
 const versionInteractor = new VersionInteractor();
