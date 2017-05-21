@@ -42,6 +42,9 @@ class User {
   }
 
   // Get number of seconds until token is expired
+  // This is will be used in the "expiresIn" options
+  // when creating the JWT token
+  // More info: https://tools.ietf.org/html/rfc7519#section-4.1.4
   expiresOneYearFromNow() {
     const now = new Date();
     const nowInMilliseconds = now.getTime();

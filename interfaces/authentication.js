@@ -1,3 +1,7 @@
+/**
+ * Authentication interface is a gateway between an application and 
+ * authentication related system
+ */
 class Authentication {
   constructor(options) {
     this.uniqueIdAdapter = options.UniqueIdAdapter;
@@ -5,11 +9,11 @@ class Authentication {
   }
 
   getNewUserId() {
-    return this.uniqueIdAdapter.getNewUuid();
+    return this.uniqueIdAdapter.generate();
   }
 
   getNewWebToken(options) {
-    return this.webTokenAdapter.getNewJsonWebToken(options);
+    return this.webTokenAdapter.generate(options);
   }
 }
 

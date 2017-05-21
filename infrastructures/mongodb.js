@@ -5,6 +5,7 @@ class MongoDb {
   }
 
   static isUserExists(email) {
+    // Just assume that user never exists for now
     return false;
   }
 }
