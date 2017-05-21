@@ -15,8 +15,9 @@ class EnvironmentVariable {
     const configurationData = new ConfigurationData();
 
     // We are loding the configuration from the environment variable
-    configurationData.MongoDBUrl = process.env.MONGODB_URL;
-    configurationData.NodeEnv = process.env.NODE_ENV;
+    configurationData.MongoDBUrl = process.env.MONGODB_URL || 'localhost';
+    configurationData.NodeEnv = process.env.NODE_ENV || 'development';
+    configurationData.SecretKey = process.env.SECRET_KEY || 'secret';
 
     return configurationData;
   }

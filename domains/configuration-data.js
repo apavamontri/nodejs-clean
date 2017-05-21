@@ -20,11 +20,19 @@ class ConfigurationData {
     this.nodeEnv = environment;
   }
 
+  get SecretKey() {
+    return this.secretKey;
+  }
+  set SecretKey(key) {
+    this.secretKey = key;
+  }
+
   // toString() print out all the configuration data in easy to read format
   toString() {
     const output = {
-      MongoDBUrl: this.MongoDBUrl,
-      NodeEnv: this.NodeEnv,
+      MongoDBUrl: this.mongoDBUrl,
+      NodeEnv: this.nodeEnv,
+      SecretKey: this.secretKey,
     };
 
     return JSON.stringify(output, null, 2);
