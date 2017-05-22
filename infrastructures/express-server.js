@@ -1,6 +1,6 @@
 /**
  * Express server class is responsible for serving the API using
- * the Express web framework 
+ * the Express web framework
  */
 const express = require('express');
 
