@@ -6,7 +6,11 @@
   "scripts": {
     "test": "mocha tests/**/*.js"
   },
-  "author": "",
+  "author": "Anusidh Pavamontri",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apavamontri/nodejs-clean.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
